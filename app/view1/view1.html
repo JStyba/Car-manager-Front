@@ -1,0 +1,25 @@
+<div ng-controller="View1Ctrl as ctrl">
+    <h1>Current user list:</h1>
+    <div class="row">
+        <table class="table-striped col-lg-12">
+            <thead>
+            <tr>
+                <th>
+                    Identifier
+                </th>
+                <th>
+                    Login
+                </th>
+                <th>
+                    Email
+                </th>
+            </tr>
+            </thead>
+            <tr ng-repeat="element in ctrl.userList" ng-class="ctrl.loggedInUser==element.id ? 'red-label' : '' ">
+                <td>{{element.id}}</td>
+                <td>{{element.login}}</td>
+                <td>{{element.email}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
