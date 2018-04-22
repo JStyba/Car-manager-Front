@@ -1,25 +1,35 @@
 'use strict';
+
 angular.module('myApp.view1', ['ngRoute'])
+
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/view1', {
             templateUrl: 'view1/view1.html',
             controller: 'View1Ctrl'
         });
     }])
-    .controller('View1Ctrl', ['$http', function ($http) {
-        var URL = 'http://localhost:8080/';
-        var self =this;
-        this.userExpenses = [];
-        this.fetchExpenses = function () {
-            $http.get(URL + 'expenses/listexpenses')
+
+    .controller('View1Ctrl', ['$http', '$rootScope', function ($http, $rootScope) {
+        var URL = 'http://localhost:8080';
+        var self = this;
+        this.zmienna = 5;
+        this.userList = [];
+
+        this.loggedInUser = $rootScope.loggedInUser;
+
+        this.fetchUsers = function () {
+            $http.get(URL + '/user/list')
                 .then(
                     function (data) {
                         console.log(data);
-                        var expenses = data.data;
-                        self.userExpenses = [];
-                        for(var index in expenses){
-                            console.log(expenses[index])
-                            self.userExpenses.push(expenses[index])
+                        var users = data.data.objects;
+
+                        // czyszczenie kolekcji ze starych wpisów
+                        self.userList = [];
+
+                        for (var index in users) {
+                            console.log(users[index]);
+                            self.userList.push(users[index]);
                         }
                     },
                     function () {
@@ -27,6 +37,6 @@ angular.module('myApp.view1', ['ngRoute'])
                     }
                 );
         };
-        self.fetchExpenses();
 
+        self.fetchUsers();
     }]);

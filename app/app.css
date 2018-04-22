@@ -27,3 +27,8 @@
 .distanced-from-top {
   margin-top: 60px;
 }
+
+.red-label {
+  background-color: #f00 !important;
+  /*color: #f00;*/
+}
