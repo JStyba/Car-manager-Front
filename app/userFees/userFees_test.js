@@ -1,15 +1,15 @@
 'use strict';
 
-describe('myApp.userExpenses module', function() {
+describe('myApp.userFees module', function() {
 
-  beforeEach(module('myApp.userExpenses'));
+  beforeEach(module('myApp.userFees'));
 
-  describe('userExpenses controller', function(){
+  describe('userFees controller', function(){
 
     it('should ....', inject(function($controller) {
       //spec body
-      var UserExpensesCtrl = $controller('UserExpensesCtrl');
-      expect(UserExpensesCtrl).toBeDefined();
+      var UserFeesCtrl = $controller('UserFeesCtrl');
+      expect(UserFeesCtrl).toBeDefined();
     }));
 
   });

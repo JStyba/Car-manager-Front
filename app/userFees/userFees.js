@@ -1,37 +1,36 @@
 'use strict';
-angular.module('myApp.userExpenses', ['ngRoute'])
+angular.module('myApp.userFees', ['ngRoute'])
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/userExpenses', {
-            templateUrl: 'userExpenses/userExpenses.html',
-            controller: 'UserExpensesCtrl'
+        $routeProvider.when('/userFees', {
+            templateUrl: 'userFees/userFees.html',
+            controller: 'UserFeesCtrl'
         });
     }])
-    .controller('UserExpensesCtrl', ['$http', function ($http) {
+    .controller('UserFeesCtrl', ['$http', function ($http) {
         var URL = 'http://localhost:8080/';
         var self = this;
-        this.userExpenses = [];
-        this.fetchExpenses = function () {
-            $http.get(URL + 'expenses/listexpenses')
+        this.userFees = [];
+        this.fetchFees = function () {
+            $http.get(URL + 'fees/listfees')
                 .then(
                     function (data) {
                         console.log(data);
-                        var expenses = data.data;
-                        self.userExpenses = [];
-                        for (var index in expenses) {
-                            console.log(expenses[index])
-                            self.userExpenses.push(expenses[index])
+                        var fees = data.data;
+                        self.userFees = [];
+                        for (var index in fees) {
+                            console.log(fees[index])
+                            self.userFees.push(fees[index])
                         }
                     },
                     function () {
                         console.log("error");
                     }
                 );
-
         };
-        self.fetchExpenses();
+        self.fetchFees();
 
-        this.removeExpense = function (expenseId) {
-            $http.delete(URL + 'expenses/remove-expense/' + expenseId).then(
+        this.removeFee = function (feeId) {
+            $http.delete(URL + 'fees/remove-fee/' + feeId).then(
                 function (data) {
                     console.log(data);
                 },
@@ -39,6 +38,15 @@ angular.module('myApp.userExpenses', ['ngRoute'])
                     console.log("Error: " + data);
                 }
             );
-
+        };
+        this.addFee = function (feeId) {
+            $http.delete(URL + 'fees/remove-fee/' + feeId).then(
+                function (data) {
+                    console.log(data);
+                },
+                function (data) {
+                    console.log("Error: " + data);
+                }
+            );
         };
     }]);
