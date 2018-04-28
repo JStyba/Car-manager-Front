@@ -19,7 +19,7 @@ angular.module('myApp.addExpense', ['ngRoute'])
         };
 
         this.sendToBackend = function () {
-            $http.post(URL + "/expense/add-expense", self.formExpense)
+            $http.post(URL + "/expenses/add-expense", self.formExpense)
                 .then(function (data) {
                     console.log(data);
                 }, function (data) {
