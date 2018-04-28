@@ -13,6 +13,7 @@ angular.module('myApp.view1', ['ngRoute'])
         var URL = 'http://localhost:8080';
         var self = this;
         this.zmienna = 5;
+
         this.userList = [];
 
         this.loggedInUser = $rootScope.loggedInUser;

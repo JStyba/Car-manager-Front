@@ -8,7 +8,7 @@ angular.module('myApp.userExpenses', ['ngRoute'])
     }])
     .controller('UserExpensesCtrl', ['$http', function ($http) {
         var URL = 'http://localhost:8080/';
-        var self =this;
+        var self = this;
         this.userExpenses = [];
         this.fetchExpenses = function () {
             $http.get(URL + 'expenses/listexpenses')
@@ -17,7 +17,7 @@ angular.module('myApp.userExpenses', ['ngRoute'])
                         console.log(data);
                         var expenses = data.data;
                         self.userExpenses = [];
-                        for(var index in expenses){
+                        for (var index in expenses) {
                             console.log(expenses[index])
                             self.userExpenses.push(expenses[index])
                         }
@@ -26,6 +26,19 @@ angular.module('myApp.userExpenses', ['ngRoute'])
                         console.log("error");
                     }
                 );
+
         };
         self.fetchExpenses();
+
+        this.removeExpense = function (expenseId) {
+            $http.delete(URL + 'expenses/remove-expense/' + expenseId).then(
+                function (data) {
+                    console.log(data);
+                },
+                function (data) {
+                    console.log("Error: " + data);
+                }
+            );
+
+        };
     }]);
