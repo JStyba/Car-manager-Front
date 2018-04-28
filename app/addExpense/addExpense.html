@@ -1,0 +1,35 @@
+<div ng-controller="addExpenseCtrl as ctrl">
+  <form>
+    <h1>Add Expense:</h1>
+    <div class="row form-group">
+      <div class="col-md-3">
+        <label for="name">Expense name:</label>
+      </div>
+      <div class="col-md-9">
+        <input class="form-control" id="name" type="text" ng-model="ctrl.formExpense.name"></input>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3">
+        <label for="cost">Cost:</label>
+      </div>
+      <div class="col-md-9">
+        <input class="form-control" id="cost" type="text" ng-model="ctrl.formExpense.cost"></input>
+      </div>
+    </div>
+    <div class="row form-group" >
+      <div class="col-md-3">
+        <label for="description">Description:</label>
+      </div>
+      <div class="col-md-9">
+        <input class="form-control" id="description" type="text" ng-model="ctrl.formExpense.description"></input>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-md-3"></div>
+      <div class="col-md-3">
+        <input class="form-control" type="button" ng-click="ctrl.sendToBackend()" value="Add">
+      </div>
+    </div>
+  </form>
+</div>

@@ -41,4 +41,9 @@ angular.module('myApp.userExpenses', ['ngRoute'])
             );
 
         };
+
+        this.editExpense = function (expense) {
+
+
+        }
     }]);
