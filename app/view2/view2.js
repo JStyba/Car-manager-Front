@@ -14,8 +14,8 @@ angular.module('myApp.view2', ['ngRoute'])
         var self = this;
         this.formUser = {
             'login': '',
-            'password': '',
-            'email': ''
+            'email': '',
+            'password': ''
         };
 
         this.sendToBackend = function () {
