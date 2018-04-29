@@ -4,7 +4,7 @@ angular.module('myApp.addFee', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/addFee', {
-            templateUrl: 'addFee/addExpense.html',
+            templateUrl: 'addFee/addCar.html',
             controller: 'addFeeCtrl'
         });
     }])

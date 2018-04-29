@@ -8,7 +8,9 @@ angular.module('myApp', [
     'myApp.addExpense',
     'myApp.view1',
     'myApp.view2',
-    'myApp.version'
+    'myApp.version',
+    'myApp.userCars',
+    'myApp.addCar'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
 
