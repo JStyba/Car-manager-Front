@@ -6,7 +6,7 @@ angular.module('myApp.userExpenses', ['ngRoute'])
             controller: 'UserExpensesCtrl'
         });
     }])
-    .controller('UserExpensesCtrl', ['$http', function ($http) {
+    .controller('UserExpensesCtrl', ['$scope', '$http', function ($scope, $http)  {
         var URL = 'http://localhost:8080/';
         var self = this;
         this.userExpenses = [];
@@ -39,11 +39,11 @@ angular.module('myApp.userExpenses', ['ngRoute'])
                     console.log("Error: " + data);
                 }
             );
+        };
+
+        this.editExpense = function (expenseId) {
 
         };
 
-        this.editExpense = function (expense) {
 
-
-        }
     }]);
