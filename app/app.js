@@ -10,7 +10,10 @@ angular.module('myApp', [
     'myApp.view2',
     'myApp.version',
     'myApp.userCars',
-    'myApp.addCar'
+    'myApp.addCar',
+    'myApp.userRepairs',
+    'myApp.addRepair',
+    'myApp.addFee'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
 
