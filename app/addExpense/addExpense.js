@@ -14,8 +14,8 @@ angular.module('myApp.addExpense', ['ngRoute'])
         var self = this;
         this.formExpense = {
             'name': '',
-            'cost': '',
-            'description': ''
+            'expenseCost': '',
+            'expenseDescription': ''
         };
 
         this.loadExpense = function () {
@@ -47,6 +47,13 @@ angular.module('myApp.addExpense', ['ngRoute'])
                     });
             } else {
                 // todo: metoda edycji danych a nie dodania
+                $http.post (URL + "/expenses/edit-expense", self.formExpense)
+                    .then (function (data) {
+                        console.log(data);
+                        },
+                        function (data) {
+                        console.log(data);
+                    });
             }
         };
     }]);

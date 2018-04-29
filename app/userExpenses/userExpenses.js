@@ -6,7 +6,7 @@ angular.module('myApp.userExpenses', ['ngRoute'])
             controller: 'UserExpensesCtrl'
         });
     }])
-    .controller('UserExpensesCtrl', ['$scope', '$http', function ($scope, $http)  {
+    .controller('UserExpensesCtrl', ['$scope', '$http', '$window', function ($scope, $http, $window)  {
         var URL = 'http://localhost:8080/';
         var self = this;
         this.userExpenses = [];
@@ -42,6 +42,7 @@ angular.module('myApp.userExpenses', ['ngRoute'])
         };
 
         this.editExpense = function (expenseId) {
+            $window.location.href = '#!/addExpense?expenseId='+expenseId
 
         };
 
