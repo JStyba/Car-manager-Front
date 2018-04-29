@@ -9,10 +9,12 @@ angular.module('myApp.addCar', ['ngRoute'])
         });
     }])
 
-    .controller('addCarCtrl', ['$http', '$routeParams', function ($http, $routeParams) {
+    .controller('addCarCtrl', ['$http', '$routeParams', '$rootScope', function ($http, $routeParams, $rootScope) {
         var URL = 'http://localhost:8080';
         var self = this;
+        self.loggedInUser = $rootScope.loggedInUser;
         this.formCar = {
+            // 'ownerId': self.loggedInUser,
             'id': '',
             'make': '',
             'model': '',
@@ -47,7 +49,8 @@ angular.module('myApp.addCar', ['ngRoute'])
 
         this.sendToBackend = function () {
             if (self.editedElementId === undefined) {
-                $http.post(URL + "/cars/add-car", self.formCar)
+                self.formCar['ownerId'] = self.loggedInUser;
+                $http.post(URL + "/cars/add-user-car", self.formCar)
                     .then(function (data) {
                         console.log(data);
                     }, function (data) {
@@ -56,13 +59,13 @@ angular.module('myApp.addCar', ['ngRoute'])
             } else {
                 // todo: metoda edycji danych a nie dodania
                 self.formCar.id = self.editedElementId;
-                $http.post (URL + "/cars/edit-car", self.formCar)
-                    .then (function (data) {
-                        console.log(data);
+                $http.post(URL + "/cars/edit-car", self.formCar)
+                    .then(function (data) {
+                            console.log(data);
                         },
                         function (data) {
-                        console.log(data);
-                    });
+                            console.log(data);
+                        });
             }
         };
     }]);

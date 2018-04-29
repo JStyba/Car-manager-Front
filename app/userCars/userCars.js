@@ -6,12 +6,13 @@ angular.module('myApp.userCars', ['ngRoute'])
             controller: 'UserCarsCtrl'
         });
     }])
-    .controller('UserCarsCtrl', ['$scope', '$http', '$window', function ($scope, $http, $window)  {
+    .controller('UserCarsCtrl', ['$scope', '$http', '$window', '$rootScope', function ($scope, $http, $window, $rootScope) {
         var URL = 'http://localhost:8080/';
         var self = this;
+        this.loggedInUser = $rootScope.loggedInUser;
         this.userCars = [];
         this.fetchCars = function () {
-            $http.get(URL + 'cars/list-cars')
+            $http.get(URL + 'cars/list-user-cars?userId=' + self.loggedInUser)
                 .then(
                     function (data) {
                         console.log(data);
@@ -42,7 +43,7 @@ angular.module('myApp.userCars', ['ngRoute'])
         };
 
         this.editCar = function (carId) {
-            $window.location.href = '#!/addCar?carId='+carId
+            $window.location.href = '#!/addCar?carId=' + carId
 
         };
 
