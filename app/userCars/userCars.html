@@ -1,0 +1,57 @@
+<div ng-controller="UserCarsCtrl as ctrl">
+    <!--<input type="button" ng-click="ctrl.fetchExpenses()">-->
+
+    <h1>Current user cars:</h1>
+    <div class="row">
+        <table class="table-striped col-lg-12">
+            <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Make
+                </th>
+                <th>
+                    Date Produced
+                </th>
+                <th>
+                    VIN
+                </th>
+                <th>
+                    Engine capacity
+                </th>
+                <th>
+                    Number of seats
+                </th>
+                <th>
+                    Registration number
+                </th>
+            </tr>
+            </thead>
+            <tr ng-repeat="element in ctrl.userCars">
+                <td>{{element.id}}</td>
+                <td>{{element.make}}</td>
+                <td>{{element.model}}</td>
+                <td>{{element.dateProduced}}</td>
+                <td>{{element.vin}}</td>
+                <td>{{element.engineCapacity}}</td>
+                <td>{{element.numberOfSeats}}</td>
+                <td>{{element.registrationNumber}}</td>
+
+
+                <td>
+                    <button ng-click="ctrl.removeCar(element.id)">delete</button>
+                </td>
+                <td>
+                    <button ng-click="ctrl.editCar(element.id)">edit</button>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+</div>
