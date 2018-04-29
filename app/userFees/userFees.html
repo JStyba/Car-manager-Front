@@ -1,0 +1,41 @@
+<div ng-controller="UserFeesCtrl as ctrl">
+    <!--<input type="button" ng-click="ctrl.fetchFees()">-->
+
+    <h1 >Current user fees:</h1>
+    <div class="row">
+        <table class="table-striped col-lg-12">
+            <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    ExpirationDate
+                </th>
+                <th>
+                    Cost
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            </thead>
+            <tr ng-repeat="element in ctrl.userFees">
+                <td>{{element.id}}</td>
+                <td>{{element.name}}</td>
+                <td>{{element.feeExpirationDate}}</td>
+                <td>{{element.feeDate}}</td>
+                <td>{{element.feeCost}}</td>
+                <td>{{element.feeDescription}}</td>
+                <td><button ng-click="ctrl.removeFee(element.id)">delete</button></td>
+                <td><button ng-click="ctrl.editFee(element)">edit</button></td>
+            </tr>
+        </table>
+    </div>
+</div>

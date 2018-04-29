@@ -4,6 +4,7 @@
 angular.module('myApp', [
     'ngRoute',
     'myApp.userExpenses',
+    'myApp.userFees',
     'myApp.addExpense',
     'myApp.view1',
     'myApp.view2',
