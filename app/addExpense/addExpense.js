@@ -13,6 +13,7 @@ angular.module('myApp.addExpense', ['ngRoute'])
         var URL = 'http://localhost:8080';
         var self = this;
         this.formExpense = {
+            'id': '',
             'name': '',
             'expenseCost': '',
             'expenseDescription': ''
@@ -23,9 +24,11 @@ angular.module('myApp.addExpense', ['ngRoute'])
                 console.log("Not undefined");
                 $http.get(URL + "/expenses/get?id=" + $routeParams.expenseId)
                     .then(function (data) {
-                        document.getElementById("name").value = data.data.name;
-                        document.getElementById("cost").value = data.data.expenseCost;
-                        document.getElementById("description").value = data.data.expenseDescription;
+                        // document.getElementById("name").value = data.data.name;
+                        // document.getElementById("cost").value = data.data.expenseCost;
+                        // document.getElementById("description").value = data.data.expenseDescription;
+
+                        self.formExpense = data.data;
                         self.editedElementId = data.data.id;
                     }, function () {
 
@@ -47,6 +50,7 @@ angular.module('myApp.addExpense', ['ngRoute'])
                     });
             } else {
                 // todo: metoda edycji danych a nie dodania
+                self.formExpense.id = self.editedElementId;
                 $http.post (URL + "/expenses/edit-expense", self.formExpense)
                     .then (function (data) {
                         console.log(data);
