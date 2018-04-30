@@ -6,7 +6,7 @@ angular.module('myApp.userFees', ['ngRoute'])
             controller: 'UserFeesCtrl'
         });
     }])
-    .controller('UserFeesCtrl', ['$http', function ($http) {
+    .controller('UserFeesCtrl', ['$scope', '$http', '$window', function ($scope, $http, $window)  {
         var URL = 'http://localhost:8080/';
         var self = this;
         this.userFees = [];
@@ -39,14 +39,8 @@ angular.module('myApp.userFees', ['ngRoute'])
                 }
             );
         };
-        this.addFee = function (feeId) {
-            $http.delete(URL + 'fees/remove-fee/' + feeId).then(
-                function (data) {
-                    console.log(data);
-                },
-                function (data) {
-                    console.log("Error: " + data);
-                }
-            );
+
+        this.editFee = function (feeId) {
+            $window.location.href = '#!/addFee?feeId='+feeId
         };
     }]);

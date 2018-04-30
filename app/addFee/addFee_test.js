@@ -4,11 +4,11 @@ describe('myApp.addFee module', function() {
 
   beforeEach(module('myApp.addFee'));
 
-  describe('addExpense controller', function(){
+  describe('addFee controller', function(){
 
     it('should ....', inject(function($controller) {
       //spec body
-      var addExpenseCtrl = $controller('addFeeCtrl');
+      var addFeeCtrl = $controller('addFeeCtrl');
       expect(addFeeCtrl).toBeDefined();
     }));
 
