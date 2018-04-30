@@ -9,11 +9,14 @@ angular.module('myApp.addExpense', ['ngRoute'])
         });
     }])
 
-    .controller('addExpenseCtrl', ['$http', '$routeParams', function ($http, $routeParams) {
+    .controller('addExpenseCtrl', ['$http', '$routeParams','$rootScope', function ($http, $routeParams, $rootScope) {
         var URL = 'http://localhost:8080';
         var self = this;
+        self.loggedInUser = $rootScope.loggedInUser;
+        self.carId = $routeParams.carId;
+        self.encodedParam = ("/expenses/add-car-expense?carId="+self.carId+"&carOwnerId="+self.loggedInUser)
         this.formExpense = {
-            'id': '',
+            'id':'',
             'name': '',
             'expenseCost': '',
             'expenseDescription': ''
@@ -42,14 +45,14 @@ angular.module('myApp.addExpense', ['ngRoute'])
 
         this.sendToBackend = function () {
             if (self.editedElementId === undefined) {
-                $http.post(URL + "/expenses/add-expense", self.formExpense)
+
+                $http.post(URL + self.encodedParam, self.formExpense)
                     .then(function (data) {
                         console.log(data);
                     }, function (data) {
                         console.log(data);
                     });
             } else {
-                // todo: metoda edycji danych a nie dodania
                 self.formExpense.id = self.editedElementId;
                 $http.post (URL + "/expenses/edit-expense", self.formExpense)
                     .then (function (data) {
