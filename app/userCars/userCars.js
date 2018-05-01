@@ -50,6 +50,14 @@ angular.module('myApp.userCars', ['ngRoute'])
             $window.location.href = '#!/addExpense?carId=' +carId
 
         };
+        this.addFee = function (carId) {
+            $window.location.href = '#!/addFee?carId=' +carId
+
+        };
+        this.addRepair = function (carId) {
+            $window.location.href = '#!/addRepair?carId=' +carId
+
+        };
 
 
     }]);

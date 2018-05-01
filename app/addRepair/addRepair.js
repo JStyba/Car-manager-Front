@@ -9,9 +9,12 @@ angular.module('myApp.addRepair', ['ngRoute'])
         });
     }])
 
-    .controller('addRepairCtrl', ['$http', '$routeParams', function ($http, $routeParams) {
+    .controller('addRepairCtrl', ['$http', '$routeParams','$rootScope', function ($http, $routeParams, $rootScope) {
         var URL = 'http://localhost:8080';
         var self = this;
+        self.loggedInUser = $rootScope.loggedInUser;
+        self.carId = $routeParams.carId;
+        self.encodedParam = ("/repairs/add-car-repair?carId="+self.carId+"&carOwnerId="+self.loggedInUser)
         this.formRepair = {
             'id': '',
             'name': '',
@@ -25,10 +28,6 @@ angular.module('myApp.addRepair', ['ngRoute'])
                 console.log("Not undefined");
                 $http.get(URL + "/repairs/get?id=" + $routeParams.repairId)
                     .then(function (data) {
-                        // document.getElementById("name").value = data.data.name;
-                        // document.getElementById("cost").value = data.data.repairCost;
-                        // document.getElementById("description").value = data.data.repairDescription;
-
                         self.formRepair = data.data;
                         self.editedElementId = data.data.id;
                     }, function () {
@@ -43,14 +42,13 @@ angular.module('myApp.addRepair', ['ngRoute'])
 
         this.sendToBackend = function () {
             if (self.editedElementId === undefined) {
-                $http.post(URL + "/repairs/add-repair", self.formRepair)
+                $http.post(URL + self.encodedParam, self.formExpense)
                     .then(function (data) {
                         console.log(data);
                     }, function (data) {
                         console.log(data);
                     });
             } else {
-                // todo: metoda edycji danych a nie dodania
                 self.formRepair.id = self.editedElementId;
                 $http.post (URL + "/repairs/edit-repair", self.formRepair)
                     .then (function (data) {
