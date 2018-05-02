@@ -59,7 +59,7 @@ angular.module('myApp.addCar', ['ngRoute'])
             } else {
                 // todo: metoda edycji danych a nie dodania
                 self.formCar.id = self.editedElementId;
-                $http.post(URL + "/cars/edit-car", self.formCar)
+                $http.post(URL + "/cars/edit-car?userId="+self.loggedInUser, self.formCar)
                     .then(function (data) {
                             console.log(data);
                         },
