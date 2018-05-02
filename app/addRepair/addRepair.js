@@ -42,7 +42,7 @@ angular.module('myApp.addRepair', ['ngRoute'])
 
         this.sendToBackend = function () {
             if (self.editedElementId === undefined) {
-                $http.post(URL + self.encodedParam, self.formExpense)
+                $http.post(URL + self.encodedParam, self.formRepair)
                     .then(function (data) {
                         console.log(data);
                     }, function (data) {
