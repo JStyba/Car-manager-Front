@@ -8,75 +8,75 @@
 <!--[if gt IE 8]><!-->
 <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
-<body>
+<body class="main-index">
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Car Manager</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item"> <!-- active usuniete -->
-          <a class="nav-link" href="#!/view1">List users</a> <!-- span usuniete -->
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!/view2">Register User</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!/userExpenses">List Expenses</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!/addExpense">Add Expense</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="#!/userCars">List Cars</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="#!/addCar">Add Car</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="#!/userRepairs">List Repairs</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="#!/addRepair">Add Repair</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#!/userFees">List Fees</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="#!/addFee">Add Fee</a>
-        </li>
-      </ul>
-      <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Car Manager</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"> <!-- active usuniete -->
+                    <a class="nav-link" href="#!/view1">List users</a> <!-- span usuniete -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/view2">Register User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/userExpenses">List Expenses</a>
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" href="#!/addExpense">Add Expense</a>-->
+                    <!--</li>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/userCars">List Cars</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/addCar">Add Car</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/userRepairs">List Repairs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/addRepair">Add Repair</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/userFees">List Fees</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/addFee">Add Fee</a>
+                </li>
+            </ul>
+            <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
 </header>
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-  your browser</a> to improve your experience.</p>
+    your browser</a> to improve your experience.</p>
 <![endif]-->
 <main role="main">
-  <div class="container distanced-from-top">
-    <div ng-view></div>
-  </div>
+    <div class="container distanced-from-top">
+        <div ng-view></div>
+    </div>
 </main>
 
 <div>Angular seed app: v<span app-version></span></div>

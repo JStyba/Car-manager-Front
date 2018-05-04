@@ -1,5 +1,17 @@
 /* app css stylesheet */
 
+.wholeblock {
+  color: white;
+  background-image: url("https://wallpapercave.com/wp/Sa9Wlwv.jpg");
+  image-orientation: inherit;
+  padding: 15px;
+  background-color: #555;
+  box-shadow: 0 0 5px 10px #555;
+}
+.main-index{
+  background-image: url("http://www.myfreetextures.com/wp-content/uploads/2011/06/brushedsteel5.jpg");
+
+}
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
