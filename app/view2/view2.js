@@ -25,5 +25,6 @@ angular.module('myApp.view2', ['ngRoute'])
                 }, function (data) {
                     console.log(data);
                 });
+            window.location = "#!/login";
         };
     }]);

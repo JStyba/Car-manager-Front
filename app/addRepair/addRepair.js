@@ -9,10 +9,10 @@ angular.module('myApp.addRepair', ['ngRoute'])
         });
     }])
 
-    .controller('addRepairCtrl', ['$http', '$routeParams','$rootScope', function ($http, $routeParams, $rootScope) {
+    .controller('addRepairCtrl', ['$http', '$routeParams','$rootScope', 'AuthService', function ($http, $routeParams, $rootScope, AuthService) {
         var URL = 'http://localhost:8080';
         var self = this;
-        self.loggedInUser = $rootScope.loggedInUser;
+        self.loggedInUser = AuthService.loggedInUser.id;
         self.carId = $routeParams.carId;
         self.encodedParam = ("/repairs/add-car-repair?carId="+self.carId+"&carOwnerId="+self.loggedInUser)
         this.formRepair = {

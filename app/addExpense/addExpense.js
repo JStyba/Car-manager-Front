@@ -9,10 +9,10 @@ angular.module('myApp.addExpense', ['ngRoute'])
         });
     }])
 
-    .controller('addExpenseCtrl', ['$http', '$routeParams','$rootScope', function ($http, $routeParams, $rootScope) {
+    .controller('addExpenseCtrl', ['$http', '$routeParams','$rootScope', 'AuthService', function ($http, $routeParams, $rootScope, AuthService) {
         var URL = 'http://localhost:8080';
         var self = this;
-        self.loggedInUser = $rootScope.loggedInUser;
+        self.loggedInUser = AuthService.loggedInUser.id;
         self.carId = $routeParams.carId;
         self.encodedParam = ("/expenses/add-car-expense?carId="+self.carId+"&carOwnerId="+self.loggedInUser)
         this.formExpense = {
