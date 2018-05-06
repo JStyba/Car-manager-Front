@@ -8,15 +8,16 @@ angular.module('myApp.login', ['ngRoute'])
             controller: 'LoginCtrl'
         });
     }])
-    .controller('LoginCtrl', ['$http', '$rootScope', function ($http, $rootScope) {
+    .controller('LoginCtrl', ['$http', '$rootScope', 'AuthService', function ($http, $rootScope, AuthService) {
         var URL = 'http://localhost:8080';
         var self = this;
         this.formUser = {
-            'username': '',
+            'login': '',
             'password': ''
         };
         this.authenticate = function () {
-            $http.post(URL + "/authenticate", +self.formUser).then(function (resp) {
+
+            $http.post(URL + "/authenticate", self.formUser).then(function (resp) {
                     console.log("Success: " + resp);
                     var token = resp.data.token;
                     var loggedInUser = resp.data.user;

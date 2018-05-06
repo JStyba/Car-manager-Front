@@ -22,5 +22,5 @@ angular.module('myApp', [
 
     $routeProvider.otherwise({redirectTo: '/main'});
 }]).run(function ($rootScope) {
-    $rootScope.loggedInUser = 2;
+    $rootScope.loggedInUser = 1;
 });
