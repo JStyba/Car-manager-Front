@@ -8,7 +8,6 @@ angular.module('myApp.login', ['ngRoute'])
             controller: 'LoginCtrl'
         });
     }])
-
     .controller('LoginCtrl', ['$http', '$rootScope', function ($http, $rootScope) {
         var URL = 'http://localhost:8080';
         var self = this;
@@ -17,21 +16,17 @@ angular.module('myApp.login', ['ngRoute'])
             'password': ''
         };
         this.authenticate = function () {
-            $http.post(URL + "/authenticate", + self.formUser).then (function (resp) {
-                console.log("Success: "+ resp);
-                var token = resp.data.token;
-                var loggedInUser = resp.data.user;
-                AuthService.loggedInUser = loggedInUser;
-                $http.defaults.headers.common['Authorization'] = 'Bearer '+ token;
-                window.location = "#!/userCars"
-            },
+            $http.post(URL + "/authenticate", +self.formUser).then(function (resp) {
+                    console.log("Success: " + resp);
+                    var token = resp.data.token;
+                    var loggedInUser = resp.data.user;
+                    AuthService.loggedInUser = loggedInUser;
+                    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+                    window.location = "#!/userCars"
+                },
                 function (resp) {
                     console.log("Error: " + resp);
                 }
             )
-
         };
-
-
-        self.fetchUsers();
     }]);
