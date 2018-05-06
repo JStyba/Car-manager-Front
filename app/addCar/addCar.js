@@ -67,5 +67,6 @@ angular.module('myApp.addCar', ['ngRoute'])
                             console.log(data);
                         });
             }
+            window.location = "#!/userCars";
         };
     }]);
