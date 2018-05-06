@@ -9,14 +9,14 @@ angular.module('myApp.view1', ['ngRoute'])
         });
     }])
 
-    .controller('View1Ctrl', ['$http', '$rootScope', function ($http, $rootScope) {
+    .controller('View1Ctrl', ['$http', '$rootScope', 'AuthService', function ($http, $rootScope, AuthService) {
         var URL = 'http://localhost:8080';
         var self = this;
         this.zmienna = 5;
 
         this.userList = [];
 
-        this.loggedInUser = $rootScope.loggedInUser;
+        this.loggedInUser = AuthService.loggedInUser.id;
 
         this.fetchUsers = function () {
             $http.get(URL + '/user/list')

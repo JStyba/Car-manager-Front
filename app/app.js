@@ -21,6 +21,6 @@ angular.module('myApp', [
     $locationProvider.hashPrefix('!');
 
     $routeProvider.otherwise({redirectTo: '/main'});
-}]).run(function ($rootScope) {
-    $rootScope.loggedInUser = 1;
+}]).run(function ($rootScope,AuthService) {
+    $rootScope.loggedInUser = AuthService.loggedInUser;
 });

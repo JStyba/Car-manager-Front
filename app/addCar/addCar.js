@@ -9,12 +9,11 @@ angular.module('myApp.addCar', ['ngRoute'])
         });
     }])
 
-    .controller('addCarCtrl', ['$http', '$routeParams', '$rootScope', function ($http, $routeParams, $rootScope) {
+    .controller('addCarCtrl', ['$http', '$routeParams', '$rootScope', 'AuthService', function ($http, $routeParams, $rootScope, AuthService) {
         var URL = 'http://localhost:8080';
         var self = this;
-        self.loggedInUser = $rootScope.loggedInUser;
+        self.loggedInUser = AuthService.loggedInUser.id;
         this.formCar = {
-            // 'ownerId': self.loggedInUser,
             'id': '',
             'make': '',
             'model': '',
@@ -59,7 +58,7 @@ angular.module('myApp.addCar', ['ngRoute'])
             } else {
                 // todo: metoda edycji danych a nie dodania
                 self.formCar.id = self.editedElementId;
-                $http.post(URL + "/cars/edit-car?userId="+self.loggedInUser, self.formCar)
+                $http.post(URL + "/cars/edit-car?userId=" + self.loggedInUser, self.formCar)
                     .then(function (data) {
                             console.log(data);
                         },

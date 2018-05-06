@@ -6,10 +6,10 @@ angular.module('myApp.userCars', ['ngRoute'])
             controller: 'UserCarsCtrl'
         });
     }])
-    .controller('UserCarsCtrl', ['$scope', '$http', '$window', '$rootScope', function ($scope, $http, $window, $rootScope) {
+    .controller('UserCarsCtrl', ['$scope', '$http', '$window', '$rootScope', 'AuthService', function ($scope, $http, $window, $rootScope, AuthService) {
         var URL = 'http://localhost:8080/';
         var self = this;
-        this.loggedInUser = $rootScope.loggedInUser;
+        this.loggedInUser = AuthService.loggedInUser.id;
         this.userCars = [];
         this.fetchCars = function () {
             $http.get(URL + 'cars/list-user-cars?userId=' + self.loggedInUser)
